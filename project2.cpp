@@ -20,6 +20,8 @@ const string complexOutput = "complex-output.txt";
 
 
 void readInFile(string filename, vector<double>& seq1, vector<double>& seq2, vector<double>& target){
+    //final program takes input from input.txt
+    //string filename = "input.txt";
     ifstream input(filename);
     string sizes;
     string elem;
