@@ -59,6 +59,24 @@ void writeToFile(string filename, vector<double>& solution){
     output.close();
 }
 
+void iterSoln(vector<double> &seq1, vector<double> &seq2, vector<double> &target, vector<double> solution, int n, int m);
+
+
+
+
+void Solver(string filename){
+
+    vector<double> seq1, seq2, target, solution;
+    readInFile(filename, seq1, seq2, target);
+    int n = seq1.size();
+    int m = seq2.size();
+    iterSoln(seq1, seq2, target, solution, n, m);
+    writeToFile("output.txt", solution);
+
+    
+
+}
+
 
 int main(){
 
