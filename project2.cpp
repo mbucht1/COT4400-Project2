@@ -63,21 +63,6 @@ void iterSoln(vector<double> &seq1, vector<double> &seq2, vector<double> &target
 
 
 
-
-void Solver(string filename){
-
-    vector<double> seq1, seq2, target, solution;
-    readInFile(filename, seq1, seq2, target);
-    int n = seq1.size();
-    int m = seq2.size();
-    iterSoln(seq1, seq2, target, solution, n, m);
-    writeToFile("output.txt", solution);
-
-    
-
-}
-
-
 int main(){
 
     vector<double> seq1;
@@ -85,15 +70,15 @@ int main(){
     vector<double> target;
     vector<double> solution;
 
-    solution.push_back(1);
-    solution.push_back(1);
-    solution.push_back(2);
-    solution.push_back(1);
-    solution.push_back(3);
-    solution.push_back(7);
-    solution.push_back(6);
-
     readInFile(complexInput, seq1, seq2, target);
+    int n = seq1.size();
+    int m = seq2.size();
+
+    iterSoln(seq1, seq2, target, solution,n,m);
+
+
+
+//printing out solution for testing
     cout << "Sequence 1: ";
     for(int i = 0; i < seq1.size(); i++){
          cout << seq1[i] << " ";
@@ -109,8 +94,16 @@ int main(){
          cout << target[i] << " ";
     }
     cout << endl;
+
+    cout << "Solution: ";
+    cout << solution[0] << endl;
+    for(int i = 1; i < solution.size(); i++){
+         cout << solution[i] << " ";
+    }
+    cout << endl;
+
   
-    writeToFile(sampleOutput, solution);
+    //writeToFile(sampleOutput, solution);
 
     return 0;
 }
