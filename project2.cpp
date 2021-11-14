@@ -80,16 +80,16 @@ void iterSoln(vector<double> &seq1, vector<double> &seq2, vector<double> &target
 
     int k;
     for (int i = n; i >= 0; i--){
-        k = i + m + 1;
-        for (int j = m; j >= 0; j--){
-            if (k == n+m+1){
+        k = i + m;
+        for (int j = m; j >= 0; j--, k--){
+            if (k == n+m){
                 arr[i][j] = 0;
                 arr2[i][j] = 0;
             } else if (i == n){
-                arr[i][j] = target[k] * seq2[j] + arr[i][j+1];
+                arr[i][j] = (target[k] * seq2[j]) + arr[i][j+1];
                 arr2[i][j] = DOWN;
             } else if (j == m){
-                arr[i][j] = target[k] * seq1[i] + arr[i+1][j];
+                arr[i][j] = (target[k] * seq1[i]) + arr[i+1][j];
                 arr2[i][j] = RIGHT;
             } else {
                 double max1 = target[k] * seq1[i] + arr[i+1][j];
@@ -103,28 +103,24 @@ void iterSoln(vector<double> &seq1, vector<double> &seq2, vector<double> &target
                     arr2[i][j] = DOWN;
                 }
             }
-            k--;
         }
     }
 
-    int i =1, j = 1;
+    int i =0, j = 0;
     solution.push_back(arr[0][0]);
     while (j+i <= n+m+1){
         if (arr2[i][j] == RIGHT){
-            cout << "RIGHT ";
             solution.push_back(seq1[i]);
             i++;
         } else{
-            cout << "DOWN ";
             solution.push_back(seq2[j]);
             j++;
         }
     }
 
     cout << "Solution1: ";
-    cout << solution.size();
     cout << solution[0] << endl;
-    for(int i = 1; i < solution.size(); i++){
+    for(int i = 1; i < n+m+1; i++){
          cout << solution[i] << " ";
     }
     cout << endl;
@@ -182,9 +178,8 @@ int main(){
     cout << endl;
 
     cout << "Solution: ";
-    cout << solution.size();
     cout << solution[0] << endl;
-    for(int i = 1; i < solution.size(); i++){
+    for(int i = 1; i < n+m+1; i++){
          cout << solution[i] << " ";
     }
     cout << endl;
