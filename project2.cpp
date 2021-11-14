@@ -20,7 +20,40 @@ const string smallOutput = "small-output.txt";
 const string complexOutput = "complex-output.txt";
 
 
+void readInFile(string filename, vector<double>& seq1, vector<double>& seq2, vector<double>& target) {
+    ifstream ifile;
+    ifile.open(filename);
+    if (!ifile){
+    cout << "File name: " << filename << " does not exist" << endl;
+    exit(1);
+    }
 
+    int n,m;
+    double t;
+    
+    ifile >> n;
+    ifile >> m;
+
+
+    for (int i = 0; i <n; i++){
+        ifile >> t;
+        seq1.push_back(t);
+    }
+
+    for (int i = 0; i <m; i++){
+        ifile >> t;
+        seq2.push_back(t);
+    }
+
+    for (int i = 0; i <n+m; i++){
+        ifile >> t;
+        target.push_back(t);
+    }
+}
+
+
+
+/*
 //void readInFile(vector<double>& seq1, vector<double>& seq2, vector<double>& target){
 void readInFile(string filename, vector<double>& seq1, vector<double>& seq2, vector<double>& target){
     //final program takes input from input.txt
@@ -49,7 +82,7 @@ void readInFile(string filename, vector<double>& seq1, vector<double>& seq2, vec
     target.assign(arr.begin() + n + m, arr.end() - 1);
     input.close();
 }
-
+*/
 void writeToFile(string filename, vector<double>& solution){
     ofstream output(filename);
     if(!output.is_open()){
@@ -136,7 +169,7 @@ int main(){
     vector<double> target;
     vector<double> solution;
 
-    //readInFile(complexInput, seq1, seq2, target);
+    readInFile("input.txt", seq1, seq2, target);
  
  /*
     //-0.2742 0.2195 0.0291 -0.1251 -0.1341 0.0184 0.2053 -0.0918 -0.1009 0.2517 -0.1632 0.0514 0.0419 0.3797 -0.2062
