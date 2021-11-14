@@ -11,13 +11,6 @@
 #define RIGHT    2
 using namespace std;
 
-const string sample = "sample.txt";
-const string sampleInput = "sample-input.txt";
-const string smallInput = "small-input.txt";
-const string complexInput = "complex-input.txt";
-const string sampleOutput = "sample-output.txt";
-const string smallOutput = "small-output.txt";
-const string complexOutput = "complex-output.txt";
 
 
 void readInFile(string filename, vector<double>& seq1, vector<double>& seq2, vector<double>& target) {
@@ -137,35 +130,8 @@ int main(){
     int m = seq2.size();
 
     iterSoln(seq1, seq2, target, solution,n,m);
-
-
-
-//printing out solution for testing
-    cout << "Sequence 1: ";
-    for(int i = 0; i < seq1.size(); i++){
-         cout << seq1[i] << " ";
-    }
-    cout << endl;
-    cout << "Sequence 2: ";
-    for(int i = 0; i < seq2.size(); i++){
-         cout << seq2[i] << " ";
-    }
-    cout << endl;
-    cout << "Target: ";
-    for(int i = 0; i < target.size(); i++){
-         cout << target[i] << " ";
-    }
-    cout << endl;
-
-    cout << "Solution: ";
-    cout << solution[0] << endl;
-    for(int i = 1; i < n+m+1; i++){
-         cout << solution[i] << " ";
-    }
-    cout << endl;
-
   
-    writeToFile(sampleOutput, solution, n, m);
+    writeToFile("output.txt", solution, n, m);
 
     return 0;
 }
