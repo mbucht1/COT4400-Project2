@@ -64,9 +64,8 @@ void writeToFile(string filename, vector<double>& solution){
     output.close();
 }
 
-void iterSoln(vector<double> &seq1, vector<double> &seq2, vector<double> &target, vector<double> solution, int n, int m){
+void iterSoln(vector<double> &seq1, vector<double> &seq2, vector<double> &target, vector<double> &solution, int n, int m){
 
-    //arr2
     vector<vector <double> > arr;
     vector<vector<int> > arr2;
 
@@ -86,7 +85,7 @@ void iterSoln(vector<double> &seq1, vector<double> &seq2, vector<double> &target
             if (k == n+m+1){
                 arr[i][j] = 0;
                 arr2[i][j] = 0;
-            } else if (i == m){
+            } else if (i == n){
                 arr[i][j] = target[k] * seq2[j] + arr[i][j+1];
                 arr2[i][j] = DOWN;
             } else if (j == m){
@@ -95,7 +94,14 @@ void iterSoln(vector<double> &seq1, vector<double> &seq2, vector<double> &target
             } else {
                 double max1 = target[k] * seq1[i] + arr[i+1][j];
                 double max2 = target[k] * seq2[j] + arr[i][j+1];
-                arr[i][j] = max(max1, max2);
+                if (max1 >= max2){
+                    arr[i][j] = max1;
+                    arr2[i][j] = RIGHT;
+
+                } else{
+                    arr[i][j] = max2;
+                    arr2[i][j] = DOWN;
+                }
             }
             k--;
         }
@@ -105,13 +111,23 @@ void iterSoln(vector<double> &seq1, vector<double> &seq2, vector<double> &target
     solution.push_back(arr[0][0]);
     while (j+i <= n+m+1){
         if (arr2[i][j] == RIGHT){
+            cout << "RIGHT ";
             solution.push_back(seq1[i]);
             i++;
         } else{
+            cout << "DOWN ";
             solution.push_back(seq2[j]);
             j++;
         }
     }
+
+    cout << "Solution1: ";
+    cout << solution.size();
+    cout << solution[0] << endl;
+    for(int i = 1; i < solution.size(); i++){
+         cout << solution[i] << " ";
+    }
+    cout << endl;
 
 }
 
@@ -124,7 +140,23 @@ int main(){
     vector<double> target;
     vector<double> solution;
 
-    readInFile(complexInput, seq1, seq2, target);
+    //readInFile(complexInput, seq1, seq2, target);
+    seq1.push_back(1);
+    seq1.push_back(3);
+    seq1.push_back(6);
+
+    seq2.push_back(1);
+    seq2.push_back(2);
+    seq2.push_back(7);
+
+    target.push_back(1);
+    target.push_back(1);
+    target.push_back(2);
+    target.push_back(3);
+    target.push_back(6);
+    target.push_back(7);
+
+
     int n = seq1.size();
     int m = seq2.size();
 
@@ -150,6 +182,7 @@ int main(){
     cout << endl;
 
     cout << "Solution: ";
+    cout << solution.size();
     cout << solution[0] << endl;
     for(int i = 1; i < solution.size(); i++){
          cout << solution[i] << " ";
