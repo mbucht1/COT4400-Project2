@@ -7,8 +7,8 @@
 #include <algorithm>
 #include <iterator>
 #define INFINITY
-#define DOWN = 1
-#define RIGHT = 2
+#define DOWN     1
+#define RIGHT    2
 using namespace std;
 
 const string sample = "sample.txt";
@@ -74,10 +74,6 @@ void iterSoln(vector<double> &seq1, vector<double> &seq2, vector<double> &target
         arr.push_back(vector<double>());
         arr2.push_back(vector<int>());
         for (int j = 0; j <= m; j++){
-            if (i == n){
-                arr[i].push_back(-INFINITY);
-                continue;
-            }
             arr[i].push_back(-1);
             arr2[i].push_back(-1);
         }
