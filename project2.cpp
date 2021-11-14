@@ -137,20 +137,66 @@ int main(){
     vector<double> solution;
 
     //readInFile(complexInput, seq1, seq2, target);
-    seq1.push_back(1);
-    seq1.push_back(3);
-    seq1.push_back(6);
+ 
+ /*
+    //-0.2742 0.2195 0.0291 -0.1251 -0.1341 0.0184 0.2053 -0.0918 -0.1009 0.2517 -0.1632 0.0514 0.0419 0.3797 -0.2062
+    seq1.push_back(-0.2742);
+    seq1.push_back(0.2195);
+    seq1.push_back(0.0291);
+    seq1.push_back(-0.1251);
+    seq1.push_back(-0.1341);
+    seq1.push_back(0.0184);
+    seq1.push_back(0.2053);
+    seq1.push_back(-0.0918);
+    seq1.push_back(-0.1009);
+    seq1.push_back(0.2517);
+    seq1.push_back(-0.1632);
+    seq1.push_back(0.0514);
+    seq1.push_back(0.0419);
+    seq1.push_back(0.3797);
+    seq1.push_back(-0.2062);
 
-    seq2.push_back(1);
-    seq2.push_back(2);
-    seq2.push_back(7);
 
-    target.push_back(1);
-    target.push_back(1);
-    target.push_back(2);
-    target.push_back(3);
-    target.push_back(6);
-    target.push_back(7);
+    //-0.4702 -0.2227 0.2929 0.0387 -0.0131 0.0689 0.1644 0.0365 -0.3298
+    seq2.push_back(-0.4702);
+    seq2.push_back(-0.2227);
+    seq2.push_back(0.2929);
+    seq2.push_back(0.0387);
+    seq2.push_back(-0.0131);
+    seq2.push_back(0.0689);
+    seq2.push_back(0.1644);
+    seq2.push_back(0.0365);
+    seq2.push_back(-0.3298);
+
+    //-0.1513 0.1748 0.0366 -0.0787 -0.5992 -0.0785 -0.1488 0.1381 0.0329 -0.0138 0.0870 0.0113 0.1329 
+    //0.2018 -0.1088 -0.0484 0.0262 -0.4134 0.3257 -0.1048 0.0377 0.0532 0.3544 -0.1801
+    target.push_back(-0.1513);
+    target.push_back(0.1748);
+    target.push_back(0.0366);
+    target.push_back(-0.0787);
+    target.push_back(-0.5992);
+    target.push_back(-0.0785);
+    target.push_back(-0.1488);
+    target.push_back(0.1381);
+    target.push_back(0.0329);
+    target.push_back(-0.0138);
+    target.push_back(0.0870);
+    target.push_back(0.0113);
+    target.push_back(0.1329);
+    target.push_back(0.2018);
+    target.push_back(-0.1088);
+    target.push_back(-0.0484);
+    target.push_back(0.0262);
+    target.push_back(-0.4134);
+    target.push_back(0.3257);
+    target.push_back(-0.1048);
+    target.push_back(0.0377);
+    target.push_back(0.0532);
+    target.push_back(0.3544);
+    target.push_back(-0.1801);
+
+    */
+
 
 
     int n = seq1.size();
